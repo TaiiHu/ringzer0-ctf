@@ -3,18 +3,18 @@ using namespace std;
 typedef int Status;
 /*
 
-1�������ڳ��ȴ���1�ĵ�ѭ��������,����ͷ���Ҳ��ͷָ��.
-sΪָ��ĳ������ָ��,�Ա�д�㷨ɾ�����*s��ֱ��ǰ�����.
+1、假设在长度大于1的单循环链表中,既无头结点也无头指针.
+s为指向某个结点的指针,试编写算法删除结点*s的直接前驱结点.
 
-2����֪�ɵ�������ʾ�����Ա���,���������ַ�������Ԫ�أ���:��ĸ,���ֺ������ַ�),
-����㷨����������ѭ������ʾ�����Ա�,ʹÿһ������ֻ��ͬһ����ַ�,
-������ԭ���еĽ��ռ���Ϊ���������Ŀռ�.(ͷ���������ٿռ�)
+2、已知由单链表表示的线性表中,含有三类字符的数据元素（如:字母,数字和其它字符),
+设计算法构造三个以循环链表示的线性表,使每一个表中只含同一类的字符,
+且利用原表中的结点空间作为这三个表的空间.(头结点可以另辟空间)
 
-3����һ˫����,ÿ������г���prior,data��next����,
-��һ����Ƶ����freq,������������ǰ,��ֵ����ʼ��Ϊ��.
-ÿ���������Ͻ���һ��LOCATE(L,x)����,Ԫ��ֵΪx�Ľ����freq���ֵ��1,
-��ʹ�������н�㱣�ְ�freq�ݼ���˳������,
-�Ա�ʹƵ�����ʵĽ�����ǿ�����ͷ.�����������Ҫ���LOCATE�㷨.
+3、有一双链表,每个结点中除有prior,data和next域外,
+有一访问频度域freq,在链表被启用前,其值均初始化为零.
+每当在链表上进行一次LOCATE(L,x)运算,元素值为x的结点中freq域的值增1,
+并使此链表中结点保持按freq递减的顺序排列,
+以便使频繁访问的结点总是靠近表头.设计满足上述要求的LOCATE算法.
 
 */
 int length=0;
@@ -67,7 +67,7 @@ Status Delete(LinkList L)
 {
     LinkList temp=L,head=L;
     int loca,num,j=0;
-    cout<<"����Ҫɾ��������:";
+    cout<<"输入要删除的数字:";
     cin>>num;
     loca=Find(L,num);
     if(loca==0)
@@ -87,7 +87,7 @@ Status Input(LinkList L)
     LinkList temp=L;
     char ch='*';
     int t;
-    cout<<"��������(��#����):";
+    cout<<"输入数字(以#结束):";
     while(ch!='#')
     {
         cin>>ch;
